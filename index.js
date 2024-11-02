@@ -1,9 +1,10 @@
 const jwt = require('jsonwebtoken');
 const express = require("express");
 const cors = require("cors");
+require("dotenv").config();
+
 const cookieParser = require('cookie-parser');
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
-require("dotenv").config();
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -32,7 +33,6 @@ const client = new MongoClient(uri, {
 async function run() {
   try {
     // Connect the client to the server
-    await client.connect();
 
     console.log(
       "Pinged your deployment. You successfully connected to MongoDB!"
